@@ -22,3 +22,18 @@ def CollectionToString(col, sep='+', isWithLeadingSep=False):
 	cnt = cnt + 1 
 
     return sio.getvalue()
+
+def StringToDict(s, sep='+', kvSep='^'):
+    if s[0] == sep:
+	s = s[1:]
+    if s[-1] == sep:
+	s = s[0:-1]
+
+    ret = dict()
+    parts = s.split(sep)
+    for p in parts:
+	kv = p.split(kvSep)
+	if len(kv) != 2: # 字符串格式有问题
+	    return None
+	ret[kv[0]] = kv[1]
+    return ret
