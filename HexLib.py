@@ -16,6 +16,9 @@ def ToHexStr(s):
 	return sio.getvalue()
 
 
+    if type(0) == type(s):
+	return hex(s).replace('0x', '')
+
     if type(bytearray()) == type(s):
 	sio = StringIO()
 	for b in s:

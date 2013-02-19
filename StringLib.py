@@ -37,3 +37,23 @@ def StringToDict(s, sep='+', kvSep='^'):
 	    return None
 	ret[kv[0]] = kv[1]
     return ret
+
+def StepSepString(s, sep, step):
+    i = 0
+    sio = StringIO()
+    while i + step < len(s):
+	sio.write(s[i:i+step])
+	sio.write(sep)
+	i = i + step
+    sio.write(s[i:i+step])
+    return sio.getvalue()
+
+
+def __main():
+    print('%s' % (StepSepString('834f9c861a9e', ':', 2)))
+    print('%s' % (StepSepString('834f9c861a9', ':', 2)))
+    print('%s' % (StepSepString('8', ':', 2)))
+
+
+if __name__ == '__main__':
+    __main()

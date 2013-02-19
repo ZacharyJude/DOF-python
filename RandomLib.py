@@ -1,4 +1,11 @@
-def RamNumberString(length, prefix=''):
+#!/usr/bin/env python
+
+try:
+    from cStringIO import StringIO
+except ImportError:
+    from StringIO import StringIO
+
+def RanNumberString(length, prefix=''):
     import random
     random.seed()
     sio = StringIO()   
@@ -7,11 +14,11 @@ def RamNumberString(length, prefix=''):
 	sio.write(str(random.randint(0,9)))
     return sio.getvalue()
 
-def RamMacString():
+def RanMacString():
     import random
     import HexLib
     random.seed()
     sio = StringIO()
     for i in range(12):
-	sio.write(ToHexStr(random.randint(0,16)))
+	sio.write(HexLib.ToHexStr(random.randint(0,15)))
     return sio.getvalue()
