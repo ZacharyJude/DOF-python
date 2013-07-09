@@ -30,6 +30,12 @@ class HttpFetcher:
 
 
     def FetchPage(self, url, data=None, referer=None, userAgent=None, rawCookieHeader=None):
+		return self.Fetch(url, data, referer, userAgent, rawCookieHeader)
+
+
+
+
+	def Fetch(self, url, data=None, referer=None, userAgent=None, rawCookieHeader=None):
 	"""Fetch a page of given url
 	 @param[in] url: fetch target url. type str
 	 @return response object, call read() can get the html content of the target page. (False, msg)--exception
